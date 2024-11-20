@@ -1,0 +1,35 @@
+{
+    "type": "valve",
+    "valveType": "faucet",
+    "name": "Aqara Valve Controller T1",
+    "url": "mqtt://localhost:1883",
+    "optimizePublishing": true,
+    "topics": {
+        "setActive": {
+            "topic": "zigbee2mqtt/AqaraValveT1/set",
+            "apply": "if (message == 1) { return 'ON';} return 'OFF';"
+        },
+        "getActive": {
+            "topic": "zigbee2mqtt/AqaraValveT1",
+            "apply": "return JSON.parse(message).state == \"OFF\" ? false : true;"
+        },
+        "getInUse": {
+            "topic": "zigbee2mqtt/AqaraValveT1",
+            "apply": "return JSON.parse(message).state == \"OFF\" ? false : true;"
+        },
+        "getStatusLowBattery": {
+            "topic": "zigbee2mqtt/AqaraValveT1",
+            "apply": "return JSON.parse(message).battery_low;"
+        },
+        "getBatteryLevel": {
+            "topic": "zigbee2mqtt/AqaraValveT1",
+            "apply": "return JSON.parse(message).battery;"
+        }
+    },
+    "durationTimer": false,
+    "manufacturer": "Aqara",
+    "model": "VC-X01D",
+    "serialNumber": "ENTER YOUR SN",
+    "firmwareRevision": "1.0.0",
+    "accessory": "mqttthing"
+}
