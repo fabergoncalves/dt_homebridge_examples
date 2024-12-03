@@ -1,0 +1,21 @@
+{
+    "type": "switch",
+    "name": "Sonoff ZBMINIR2",
+    "url": "mqtt://localhost:1883",
+    "optimizePublishing": true,
+    "topics": {
+        "getOn": {
+            "topic": "zigbee2mqtt/ZBMINIR2",
+            "apply": "return JSON.parse(message).state == \"OFF\" ? false : true;"
+        },
+        "setOn": {
+            "topic": "zigbee2mqtt/ZBMINIR2/set",
+            "apply": "if (message == 1) { return 'ON';} return 'OFF';"
+        }
+    },
+    "manufacturer": "Sonoff",
+    "model": "ZBMINIR2",
+    "serialNumber": "ENTER YOUR SN",
+    "firmwareRevision": "1.0.2",
+    "accessory": "mqttthing"
+}
