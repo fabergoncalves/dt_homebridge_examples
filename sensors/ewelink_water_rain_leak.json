@@ -1,0 +1,21 @@
+{
+    "accessory": "mqttthing",
+    "type": "leakSensor",
+    "name": "3C Electron Ewelink",
+    "url": "mqtt://localhost:1883",
+    "optimizePublishing": true,
+    "topics": {
+        "getLeakDetected": {
+            "topic": "zigbee2mqtt/0xa4c13887fdcb5ab3",
+            "apply": "return JSON.parse(message).water_leak;"
+        },
+        "getBatteryLevel": {
+            "topic": "zigbee2mqtt/0xa4c13887fdcb5ab3",
+            "apply": "return JSON.parse(message).battery;"
+        },
+        "getStatusLowBattery": {
+            "topic": "zigbee2mqtt/0xa4c13887fdcb5ab3",
+            "apply": "return JSON.parse(message).battery_low;"
+        }
+    }
+}
